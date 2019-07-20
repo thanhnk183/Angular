@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produc } from '../Produc'
+import { Produc } from '../Produc';
+import {Data} from '../Data'
 
 
 @Component({
@@ -10,17 +11,13 @@ import { Produc } from '../Produc'
 export class ProductListingComponent implements OnInit {
 
 
-  produc: Produc = {
-    title: "IPHONE X",
-    description: "Điện thoại Iphone X 256G - Chính hãng Apple",
-    price: 300000000,
-    status: true
-  };
+  products = Data;
+  selectedProduct: Produc;
+  isShow: boolean = false;
   constructor() { }
   ngOnInit() {
   }
-  onCLick = event =>{
-    this.produc.title= "SAMSUNG";
+  detailProduct(product){
+    this.selectedProduct = product;
   }
-
 }

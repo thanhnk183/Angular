@@ -1,54 +1,23 @@
-<div class="row">
-  <div class="col-md-3">
-    <div class="card">
+
+  <div class="row">
+  <div class="col-md-3" *ngFor="let product of products">
+    <div class="card" [ngClass]="{'border': isShow,
+    'shadow': isShow}"
+    
+    >
       <div class="card-body">
         <img src="https://images-na.ssl-images-amazon.com/images/I/514YMVAc6NL._SL1024_.jpg" class="card-img-top"
           alt="...">
-        <h5 class="card-title">{{produc.title}}</h5>
-        <p class="card-text">{{produc.description}}</p>
-        <p class="text-danger">{{produc.price}} đ</p>
-        <p class="card-text">{{produc.status ? 'Còn hàng' : 'Hết hàng'}}</p>
-        <button class="btn btn-primary" (click)="onCLick($event)">Mua</button>
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="text-danger">{{product.price}} đ</p>
+        <p class="card-text">{{product.status == 1 ? 'Còn hàng' : 'Hết hàng'}}</p>
+        <button class="btn btn-primary" (click)="detailProduct(product)">Mua</button>
+       
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/514YMVAc6NL._SL1024_.jpg" class="card-img-top"
-          alt="...">
-        <h5 class="card-title">{{produc.title}}</h5>
-        <p class="card-text">{{produc.description}}</p>
-        <p class="text-danger">{{produc.price}} đ</p>
-        <p class="card-text">{{produc.status ? 'Còn hàng' : 'Hết hàng'}}</p>
-        <a href="#" class="btn btn-primary">Mua</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/514YMVAc6NL._SL1024_.jpg" class="card-img-top"
-          alt="...">
-        <h5 class="card-title">{{produc.title}}</h5>
-        <p class="card-text">{{produc.description}}</p>
-        <p class="text-danger">{{produc.price}} đ</p>
-        <p class="card-text">{{produc.status ? 'Còn hàng' : 'Hết hàng'}}</p>
-        <a href="#" class="btn btn-primary">Mua</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/514YMVAc6NL._SL1024_.jpg" class="card-img-top"
-          alt="...">
-        <h5 class="card-title">{{produc.title}}</h5>
-        <p class="card-text">{{produc.description}}</p>
-        <p class="text-danger">{{produc.price}} đ</p>
-        <p class="card-text">{{produc.status ? 'Còn hàng' : 'Hết hàng'}}</p>
-        <a href="#" class="btn btn-primary">Mua</a>
-      </div>
-    </div>
-  </div>
+</div>
+<div *ngIf="selectedProduct">
+  <app-product-detail [product]="selectedProduct"></app-product-detail>
 </div>

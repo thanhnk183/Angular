@@ -1,5 +1,6 @@
 export class Produc{
-    title: string;
+    id: number;
+    name: string;
     description: string;
     price: number;
     status: boolean;
