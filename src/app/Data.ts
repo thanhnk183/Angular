@@ -21,5 +21,13 @@ export const Data: Produc[] = [
         price: 300000000,
         status: true
     }
+    ,
+    {
+        id: 4,
+        name: "IPHONE X3",
+        description: "Điện thoại Iphone X 256G - Chính hãng APPLE",
+        price: 300000000,
+        status: true
+    }
 
 ]

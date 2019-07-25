@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Produc } from '../Produc';
-import {Data} from '../Data'
+
+import {ProductService} from '../services/product.service';
+// import { Data } from '../Data';
 
 
 @Component({
@@ -10,12 +12,18 @@ import {Data} from '../Data'
 })
 export class ProductListingComponent implements OnInit {
 
-
-  products = Data;
+  // products = Data;
+  products: Produc[];
   selectedProduct: Produc;
   isShow: boolean = false;
-  constructor() { }
+  constructor(
+    private productServices: ProductService
+  ) { }
   ngOnInit() {
+      this.getProducts();
+  }
+  getProducts(){
+    this.products = this.productServices.getProducts();
   }
   detailProduct(product){
     this.selectedProduct = product;

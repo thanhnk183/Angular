@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ANGULAR-tour-heroes';
+  title = 'anggular-tour-heroes';
+  address: string;
+  getAddress(value){
+    console.log(value);
+    this.address = value;
+  }
 }
