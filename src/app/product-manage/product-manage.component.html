@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+  <h4 style="color: green">::Thông tin sản phẩm</h4>
+  <hr>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/addProduct">New Product</a>
+    </li> 
+  </ul>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Img</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td><img height="20px"
+            src="{{product.image}}">
+        </td>
+        <td>{{product.price}} VND</td>
+        <td>{{product.desscription}} VND</td>
+        <td><button type="button" class="btn btn-outline-success"
+            routerLink="/products/edit/{{product.id}}">Update</button></td>
+        <td><button type="button" class="btn btn-outline-danger" (click)="removeProduct(product)">Delete</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</div>

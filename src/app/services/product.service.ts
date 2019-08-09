@@ -1,22 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Data } from '../Data';
-import { Produc } from '../Produc';
-
+import { Product } from '../Product';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private products = Data;
 
-  constructor() { }
-  getProducts():Produc[]{
-    return this.products;
+  private API: string = 'http://5d44da52d823c30014771a0b.mockapi.io/products'
+
+  constructor( private http: HttpClient ) { }
+
+  getProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.API);
   }
 
-  addProduct(product){
-    const newProduct = {id: this.products.length + 1, ...product};
-    console.log(newProduct);
-    return this.products.push(newProduct);
+  getProduct(id): Observable<Product>{
+    return this.http.get<Product>(`${this.API}/${id}`);
+  }
+
+  addProduct(product): Observable<Product>{
+    return this.http.post<Product>(this.API, product);
+  }
+
+  saveProduct(product): Observable<Product>{
+    return this.http.put<Product>(`${this.API}/${product.id}`, product);
+  }
+
+  deleteProduct(id): Observable<Product>{
+    return this.http.delete <Product>(`${this.API}/${id}`);
   }
 }

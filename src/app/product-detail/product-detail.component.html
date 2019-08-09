@@ -1,1 +1,32 @@
-{{product.name}}
+<br>
+<div class="container">
+    <h4 style="color: forestgreen">Thông tin chi tiết sản phẩm</h4>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <div *ngIf="product" class="card" style="width: 18rem;">
+                <img src="{{product.image}}" class="card-img-top"
+                    alt="...">
+                <div class="card-body">
+                    <h6 *ngIf="product">
+                        {{product.name}}
+                    </h6>
+                    <p class="card-text" *ngIf="product">{{product.desscription}}</p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-6">
+            <h6 *ngIf="product">Tên sản phẩm:
+                {{product.name}}
+            </h6>
+            <h6 *ngIf="product">Giá sản phẩm:
+                {{product.price}} VNĐ
+            </h6>
+            <h6 *ngIf="product">Thông tin:
+                {{product.desscription}} VNĐ
+            </h6>
+        </div>
+    </div>
+</div>

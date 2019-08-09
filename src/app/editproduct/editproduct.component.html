@@ -1,0 +1,23 @@
+<div class="container">
+    Mời nhập thông tin sửa sản phẩm
+
+    <form *ngIf="product">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Tên sản phẩm:</label>
+            <input type="text" class="form-control" [(ngModel)]="product.name" name="product-name">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Giá sản phẩm:</label>
+            <input type="Text" class="form-control" [(ngModel)]="product.price" name="product-price">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Thông tin:</label>
+            <input type="Text" class="form-control" [(ngModel)]="product.desscription" name="product-description">
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="saveProduct()">Save</button>
+    </form>
+
+
+</div>

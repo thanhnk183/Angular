@@ -1,0 +1,35 @@
+<div class="nv">
+    <div id="letrai">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list"
+                style="background-color: darkgrey" data-toggle="list" href="#" role="tab" aria-controls="home">Danh Mục
+                Sản Phẩm</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#"
+                role="tab" aria-controls="profile">Iphone</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#"
+                role="tab" aria-controls="messages">SamSung</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#"
+                role="tab" aria-controls="settings">Nokia</a>
+        </div>
+    </div>
+    <div id="right">
+        <h4 style="color: green">::Iphone</h4>
+        <hr>
+        <div class="row">
+
+            <div class="col-sm-4" *ngFor="let product of products">
+                <br>
+                <div class="card">
+                    <img src="{{product.image}}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.desscription}} - <span style="color: red">{{product.price}} vnđ</span></p>
+                        
+                        <a class="btn btn-primary" routerLink="/products/{{product.id}}">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
